@@ -29,6 +29,7 @@
     "*.la"
   ],
   "modules": [
+    "shared-modules/SDL/SDL-1.2.15.json",
     {
       "name": "fftw3f",
       "config-opts": [
