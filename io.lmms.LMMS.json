@@ -190,6 +190,29 @@
       ]
     },
     {
+      "name": "fltk",
+      "config-opts": [
+        "--enable-threads",
+        "--enable-cairo",
+        "--enable-shared",
+        "--disable-static"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/fltk/fltk/archive/release-1.3.5.tar.gz",
+          "sha256": "5c534287b0e03b9520ff866704a5649268986b371bdf8f6ac003fa240e761901"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/man",
+        "/share/man",
+        "/lib/pkgconfig",
+        "*.la"
+      ]
+    },
+    {
       "name": "lmms",
       "buildsystem": "cmake-ninja",
       "config-opts": [
