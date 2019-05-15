@@ -19,7 +19,8 @@
     /* Allow loading, saving files from the home directory (portals don’t work yet) */
     "--filesystem=home",
     /* Allow other instances to see lockfiles */
-    "--env=TMPDIR=/var/tmp"
+    "--env=TMPDIR=/var/tmp",
+    "--env=LD_LIBRARY_PATH=/app/lib:/app/lib/libgig"
   ],
   "cleanup": [
     "/include",
@@ -107,6 +108,39 @@
           "type": "archive",
           "url": "https://github.com/falkTX/Carla/archive/v1.9.13.tar.gz",
           "sha256": "cc6639dd23b22279f8ab1ae9b51e71d5480b86112c475110daa68cf68fb8cf63"
+        }
+      ]
+    },
+    {
+      "name": "stk",
+      "build-commands": [
+        "make -j $FLATPAK_BUILDER_N_JOBS -C src",
+        "make -j $FLATPAK_BUILDER_N_JOBS -C projects/effects libeffects",
+        "make -j $FLATPAK_BUILDER_N_JOBS -C projects/ragamatic libragamat",
+        "make -j $FLATPAK_BUILDER_N_JOBS -C projects/eguitar libeguitar"
+      ],
+      "post-install": [
+        "sh ./stk-install.sh"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "http://ccrma.stanford.edu/software/stk/release/stk-4.6.1.tar.gz",
+          "sha256": "e77ba3c80cdd93ca02c34098b9b7f918df3d648c87f1ed5d94fe854debd6d101"
+        },
+        {
+          "type": "file",
+          "path": "stk-install.sh"
+        }
+      ]
+    },
+    {
+      "name": "gig",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "http://download.linuxsampler.org/packages/libgig-4.1.0.tar.bz2",
+          "sha256": "06a280278a323963042acdf13b092644cceb43ef367fcbb9ca7bbedff132bd0b"
         }
       ]
     },
