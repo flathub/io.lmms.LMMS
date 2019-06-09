@@ -5,8 +5,10 @@
  <metadata_license>CC0</metadata_license>
  <project_license>GPL-2.0+</project_license>
  <name>LMMS</name>
+ <name xml:lang="fr">LMMS</name>
  <summary>A music production application</summary>
- <description>
+ <summary xml:lang="fr">Une application de production musicale</summary>
+ <description xml:lang="en">
    <p>LMMS is a music production application. It allows the creation
    of loops, synthesizing and mixing sounds, arranging samples having
    fun with your MIDI-keyboard and much more... It combines the
@@ -23,6 +25,7 @@
    <caption>The main LMMS window</caption>
   </screenshot>
  </screenshots>
+ <update_contact>lmms-devel_AT_lists.sourceforge.net</update_contact>
  <url type="homepage">https://lmms.io/</url>
  <url type="bugtracker">https://github.com/LMMS/lmms/issues</url>
  <url type="faq">https://lmms.io/documentation/User_FAQ</url>
@@ -32,7 +35,7 @@
    <release version="1.2.0" date="2019-06-09">
      <url>https://github.com/LMMS/lmms/releases/tag/v1.2.0</url>
      <description>
-       <p>General improvements:</p>
+       <p>Improvements:</p>
        <ul>
          <li>Fix build with musl C runtime library (#4825)</li>
          <li>Fix debug build broken in RC8 (a233291)</li>
@@ -42,18 +45,15 @@
          <li>Allow recording chords directly from the piano-roll (#4938)</li>
          <li>Fix more issues with ZynAddSubFX and/or VSTs related to automation (#4942)</li>
          <li>Better default sounds for Nescaline and Freeboy (#4968)</li>
-       </ul>
-       <p>UI improvements:</p>
-       <ul>
-         <li>AudioFileProcessor: Better tooltip for ping-pong loop (#4868)</li>
-         <li>VST: Add VST always-on-top config option (17f6235)</li>
-         <li>VST: Ensure VST windows show properly in taskbar (6fef905)</li>
-         <li>VST: Don't show error when loading empty VeSTige instance (205b575)</li>
-         <li>Equalizer: Fix spectrum window formula (#4895)</li>
-         <li>Equalizer: Use brighter and more opaque colors for the spectrum view (#4772)</li>
-         <li>Don't draw note detuning info over the volume/panning area (#4965, 9ff882d)</li>
-         <li>Fix hanging cursor in piano-roll (#4960)</li>
-         <li>Update splash screen (#5002, #5019)</li>
+         <li>[UI] AudioFileProcessor: Better tooltip for ping-pong loop (#4868)</li>
+         <li>[UI] VST: Add VST always-on-top config option (17f6235)</li>
+         <li>[UI] VST: Ensure VST windows show properly in taskbar (6fef905)</li>
+         <li>[UI] VST: Don't show error when loading empty VeSTige instance (205b575)</li>
+         <li>[UI] Equalizer: Fix spectrum window formula (#4895)</li>
+         <li>[UI] Equalizer: Use brighter and more opaque colors for the spectrum view (#4772)</li>
+         <li>[UI] Don't draw note detuning info over the volume/panning area (#4965, 9ff882d)</li>
+         <li>[UI] Fix hanging cursor in piano-roll (#4960)</li>
+         <li>[UI] Update splash screen (#5002, #5019)</li>
        </ul>
        <p>Bug Fixes:</p>
        <ul>
@@ -83,7 +83,7 @@
    <release version="1.1.99-rc8" date="2019-02-19">
      <url>https://github.com/LMMS/lmms/releases/tag/v1.2.0-rc8</url>
      <description>
-       <p>General improvements:</p>
+       <p>Improvements:</p>
        <ul>
         <li>Don't quit command-line rendering when failed to load sample files (1ab1280)</li>
         <li>Disable FX auto quit by default to avoid buggy behaviors (#4378)</li>
@@ -93,11 +93,8 @@
         <li>MIDI import/export: map volume with the full range (#4785)</li>
         <li>Add a hidden setting to toggle built-in sound sanitizer (#4787)</li>
         <li>Don't let silent instruments wake up sleeping effects (#4792)</li>
-      </ul>
-      <p>UI improvements:</p>
-      <ul>
-        <li>Treat empty patterns in song editors as Beat/Bassline patterns only if zoomed enough (5a92105)</li>
-        <li>Decrease the margin of the LFO graph for better appearance (d9f5e8a)</li>
+        <li>[UI] Treat empty patterns in song editors as Beat/Bassline patterns only if zoomed enough (5a92105)</li>
+        <li>[UI] Decrease the margin of the LFO graph for better appearance (d9f5e8a)</li>
       </ul>
       <p>Bug Fixes:</p>
       <ul>
@@ -128,7 +125,7 @@
    <release version="1.1.99-rc7" date="2018-09-25">
      <url>https://github.com/LMMS/lmms/releases/tag/v1.2.0-rc7</url>
      <description>
-       <p>General improvements:</p>
+       <p>Improvements:</p>
        <ul>
          <li>Initialize peak controller value with the base value (#4382)</li>
          <li>Quit exit if failing to save project (#4428)</li>
@@ -138,14 +135,11 @@
          <li>Remove Qt temporary files after loading ZynAddSubFX settings (#4551)</li>
          <li>Extend Sndio audio backend support to more OS (#4486)</li>
          <li>Improve handling of invalid backend setting (91ca660)</li>
-       </ul>
-       <p>UI improvements:</p>
-       <ul>
-         <li>Redesign the LMMS logo and mimetype icons (#4519)</li>
-         <li>Deselect FX channel's name text when losing focus (#4293)</li>
-         <li>Setup Dialog - Fix bottom of letters cut off (#4483)</li>
-         <li>Make the oscilloscope colors available as properties (#4512)</li>
-         <li>Update LMMS UI more frequently (#4570)</li>
+         <li>[UI] Redesign the LMMS logo and mimetype icons (#4519)</li>
+         <li>[UI] Deselect FX channel's name text when losing focus (#4293)</li>
+         <li>[UI] Setup Dialog - Fix bottom of letters cut off (#4483)</li>
+         <li>[UI] Make the oscilloscope colors available as properties (#4512)</li>
+         <li>[UI] Update LMMS UI more frequently (#4570)</li>
        </ul>
        <p>Bug Fixes:</p>
        <ul>
