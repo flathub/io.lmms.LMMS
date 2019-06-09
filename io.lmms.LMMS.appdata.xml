@@ -29,10 +29,61 @@
  <url type="help">https://lmms.io/documentation/</url>
  <url type="translate">https://github.com/LMMS/lmms/wiki/Creating-a-localization</url>
  <releases>
-   <release version="1.2.0-rc8" date="2019-02-19">
+   <release version="1.2.0" date="2019-06-09">
+     <url>https://github.com/LMMS/lmms/releases/tag/v1.2.0</url>
+     <description>
+       <p>General improvements:</p>
+       <ul>
+         <li>Fix build with musl C runtime library (#4825)</li>
+         <li>Fix debug build broken in RC8 (a233291)</li>
+         <li>DrumSynth: Make the parsing logic safer (#4869)</li>
+         <li>Allow sample track clips to be resized smaller than one bar (#4933)</li>
+         <li>Don't require X11Extras on Linux when VSTs are disabled (#4953)</li>
+         <li>Allow recording chords directly from the piano-roll (#4938)</li>
+         <li>Fix more issues with ZynAddSubFX and/or VSTs related to automation (#4942)</li>
+         <li>Better default sounds for Nescaline and Freeboy (#4968)</li>
+       </ul>
+       <p>UI improvements:</p>
+       <ul>
+         <li>AudioFileProcessor: Better tooltip for ping-pong loop (#4868)</li>
+         <li>VST: Add VST always-on-top config option (17f6235)</li>
+         <li>VST: Ensure VST windows show properly in taskbar (6fef905)</li>
+         <li>VST: Don't show error when loading empty VeSTige instance (205b575)</li>
+         <li>Equalizer: Fix spectrum window formula (#4895)</li>
+         <li>Equalizer: Use brighter and more opaque colors for the spectrum view (#4772)</li>
+         <li>Don't draw note detuning info over the volume/panning area (#4965, 9ff882d)</li>
+         <li>Fix hanging cursor in piano-roll (#4960)</li>
+         <li>Update splash screen (#5002, #5019)</li>
+       </ul>
+       <p>Bug Fixes:</p>
+       <ul>
+         <li>Fix ZynAddSubFX pitch resetting on project load/export (04768ee, 97d5529)</li>
+         <li>VST: Fix crash when using 32bit VSTs on 64bit Linux with VST sync turned on (3aeacca)</li>
+         <li>Fix crash when trying to drop controls into the empty automation editor (#4882)</li>
+         <li>Fix crash Ctrl + dragging patterns between instances (#4882)</li>
+         <li>Fix creating new ZynAddSubFX banks on Linux (#4905)</li>
+         <li>Fix empty editors after closing them and creating a new project (#4891)</li>
+         <li>Fix crash when loading presets with broken controller connections (#4939, 934ea6d)</li>
+         <li>Fixes crash on cloning patterns on Qt >= 5.12 due to cursor issues (#4918)</li>
+         <li>Fix notes getting stuck under high CPU conditions (#4908)</li>
+         <li>Fix crashes due to race conditions in NotePlayHandleManager (#4966)</li>
+         <li>Fix LADSPA automations getting disconnected on export (#4972)</li>
+         <li>Fix crash on removing sample track clips while playing (#4982)</li>
+         <li>Fix sample tracks out of sync if the processing sample rate is different from 44100Hz (#4991)</li>
+         <li>Fix the genre metadata of exported MP3 files wrongly set to Blues (47d6388)</li>
+         <li>Fix metadata not written correctly when exporting multiple tracks (#5005)</li>
+       </ul>
+       <p>Localization:</p>
+       <ul>
+         <li>Update translations from Transifex (fad89d6)</li>
+         <li>Fix minor issues in German translations (457f2c6)</li>
+       </ul>
+     </description>
+   </release>
+   <release version="1.1.99-rc8" date="2019-02-19">
      <url>https://github.com/LMMS/lmms/releases/tag/v1.2.0-rc8</url>
      <description>
-       <p>General improvements</p>
+       <p>General improvements:</p>
        <ul>
         <li>Don't quit command-line rendering when failed to load sample files (1ab1280)</li>
         <li>Disable FX auto quit by default to avoid buggy behaviors (#4378)</li>
@@ -43,12 +94,12 @@
         <li>Add a hidden setting to toggle built-in sound sanitizer (#4787)</li>
         <li>Don't let silent instruments wake up sleeping effects (#4792)</li>
       </ul>
-      <p>UI improvements</p>
+      <p>UI improvements:</p>
       <ul>
         <li>Treat empty patterns in song editors as Beat/Bassline patterns only if zoomed enough (5a92105)</li>
         <li>Decrease the margin of the LFO graph for better appearance (d9f5e8a)</li>
       </ul>
-      <p>Bug Fixes</p>
+      <p>Bug Fixes:</p>
       <ul>
         <li>Fix VST track cloning in Beat/Bassline editor (fb5c8f5)</li>
         <li>Fix unusable instrument track dropped on the Beat/Bassline editor (43b700d)</li>
@@ -68,16 +119,16 @@
         <li>Fix Linux HiDPI handling (bbedfa9)</li>
         <li>Ensure the restore button of a subwindow shows up correctly (#4819)</li>
       </ul>
-      <p>Localization</p>
+      <p>Localization:</p>
       <ul>
         <li>German: show correct accelerator key in the context menu (fbdd09d)</li>
       </ul>
      </description>
    </release>
-   <release version="1.2.0-rc7" date="2018-09-25">
+   <release version="1.1.99-rc7" date="2018-09-25">
      <url>https://github.com/LMMS/lmms/releases/tag/v1.2.0-rc7</url>
      <description>
-       <p>General improvements</p>
+       <p>General improvements:</p>
        <ul>
          <li>Initialize peak controller value with the base value (#4382)</li>
          <li>Quit exit if failing to save project (#4428)</li>
@@ -88,7 +139,7 @@
          <li>Extend Sndio audio backend support to more OS (#4486)</li>
          <li>Improve handling of invalid backend setting (91ca660)</li>
        </ul>
-       <p>UI improvements</p>
+       <p>UI improvements:</p>
        <ul>
          <li>Redesign the LMMS logo and mimetype icons (#4519)</li>
          <li>Deselect FX channel's name text when losing focus (#4293)</li>
@@ -96,7 +147,7 @@
          <li>Make the oscilloscope colors available as properties (#4512)</li>
          <li>Update LMMS UI more frequently (#4570)</li>
        </ul>
-       <p>Bug Fixes</p>
+       <p>Bug Fixes:</p>
        <ul>
          <li>Fix automation processing priority (#4387)</li>
          <li>Piano roll: Fix some crashes when no pattern is open (#4392)</li>
@@ -113,14 +164,14 @@
          <li>Fix some VSTs ignoring sample rate changes (de427bb)</li>
          <li>Fix hang when updateInOutCount called from processReplacing (cc2ae66)</li>
          <li>Fix VST transport flags usage in VST sync (2c5cda5)</li>
-         <li>Fix VST windows resizing partially (53dadd5)d the resizing case.</li>
+         <li>Fix VST windows resizing partially (53dadd5)d the resizing case</li>
          <li>Fix RemoteVstPlugin spawning console host processes (0ad8527)</li>
          <li>Fix some VST hangs due to uninitialized COM/OLE in RemoteVstPlugin (4c7c68f)</li>
          <li>Fix some VSTs resetting sounds due to using programs as presets (c3db486)</li>
          <li>Fix decimal separator handling when loading real numbers (#4547)</li>
          <li>Fix crash on Windows due to disabled PortAudio (3064f03)</li>
        </ul>
-       <p>Localization</p>
+       <p>Localization:</p>
        <ul>
          <li>Fix wrong accelerator character in Swedish translation (1bae047, b52861f)</li>
          <li>Fix some formatting issues in translations (#4482)</li>
