@@ -8,13 +8,21 @@
  <name xml:lang="fr">LMMS</name>
  <summary>A music production application</summary>
  <summary xml:lang="fr">Une application de production musicale</summary>
- <description xml:lang="en">
+ <description>
    <p>LMMS is a music production application. It allows the creation
    of loops, synthesizing and mixing sounds, arranging samples having
    fun with your MIDI-keyboard and much more... It combines the
    features of a tracker-/sequencer-program and those of powerful
    synthesizers, samplers, effects etc. in a modern, user-friendly and
    easy to use graphical user-interface.</p>
+ </description>
+ <description xml:lang="fr">
+   <p>LMMS est une applicaton de production musicale. Elle permet la
+   creation de loops, de synthétiser et mixer des sons, d'arranger des
+   échantillons, de jouer avec un clavier MIDI, et plus... Elle
+   combine les fonctionalités d'un programme tracker/séquenceur et
+   celles de synthétiseurs puissants, échantilloneurs, effets, etc. le
+   tout dans une interface graphique moderne et facile a utiliser.</p>
  </description>
  <content_rating type="oars-1.1" />
  <launchable type="desktop-id">io.lmms.LMMS.desktop</launchable>
