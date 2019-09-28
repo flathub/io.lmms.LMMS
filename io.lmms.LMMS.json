@@ -1,7 +1,7 @@
 {
   "app-id": "io.lmms.LMMS",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.12",
+  "runtime-version": "5.13",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -151,6 +151,10 @@
           "type": "archive",
           "url": "https://github.com/falkTX/Carla/archive/v2.0.0.tar.gz",
           "sha256": "d0c8d8417f8cce9abe807f6359231f187d60db7121ec1dccce3b596a22ef6c41"
+        },
+        {
+          "type": "patch",
+          "path": "patches/carla-issue-895.patch"
         }
       ]
     },
