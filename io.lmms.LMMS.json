@@ -228,8 +228,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/LMMS/lmms/releases/download/v1.2.0/lmms_1.2.0.tar.xz",
-          "sha256": "6503559c2b95fdf45ca6cf4fc5afe66544ad53f2a70ca2e08a52301ad8e42617"
+          "url": "https://github.com/LMMS/lmms/releases/download/v1.2.1/lmms_1.2.1.tar.xz",
+          "sha256": "5a6d1e82b00a7f54ffb8cf52eff2e0b3ff87cadbe5691917edebe51f64c26ae8"
         },
         {
           "type": "file",

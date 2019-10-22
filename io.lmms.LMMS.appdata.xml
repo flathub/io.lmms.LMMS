@@ -40,6 +40,40 @@
  <url type="help">https://lmms.io/documentation/</url>
  <url type="translate">https://github.com/LMMS/lmms/wiki/Creating-a-localization</url>
  <releases>
+   <release version="1.2.1" date="2019-10-21">
+     <url>https://github.com/LMMS/lmms/releases/tag/v1.2.1</url>
+     <description>
+       <p>General improvements:</p>
+       <ul>
+         <li>Respect OS' case sensitivity when checking for existing files (#4768)</li>
+         <li>Remove MIDI connections from factory .mmpz files (#5163)</li>
+         <li>Show FreeBSD in the build version info (732448c)</li>
+       </ul>
+       <p>UI improvements:</p>
+       <ul>
+         <li>Make splash screen text white (#5149)</li>
+         <li>Show Beat/Bassline Editor on clicking track labels of B/B tracks (#5060)</li>
+         <li>Enable dark title bar on macOS (df79f8c)</li>
+       </ul>
+       <p>Bug Fixes:</p>
+       <ul>
+         <li>Fix building RemoteVstPlugin with Wine >= 4.14 (#5210)</li>
+         <li>Fix stuck keys when dragging on the piano view (#5127)</li>
+         <li>Fix crash on unmarking octave semitones (#5184)</li>
+         <li>Fix invalid MIDI Program Change decoding (#5154)</li>
+         <li>Rubberband fix for selecting a large area in the song editor (#5003)</li>
+         <li>VeSTige: show icon on 'Turn off all notes' button (#5237)</li>
+         <li>RemoteVstPlugin: fix crashes when failed to open a file (#5235)</li>
+         <li>Organic: fix glitch at the beginning of a note (#5252)</li>
+         <li>Fix broken audio sample exporting on high sampling rate (#5226)</li>
+       </ul>
+       <p>Localization</p>
+       <ul>
+         <li>Better French translations in the menu item file (#4711)</li>
+         <li>Fix too long translations to fix the UI misalignment (#5185)</li>
+       </ul>
+     </description>
+   </release>
    <release version="1.2.0" date="2019-06-09">
      <url>https://github.com/LMMS/lmms/releases/tag/v1.2.0</url>
      <description>
