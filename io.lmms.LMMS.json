@@ -1,7 +1,7 @@
 {
   "app-id": "io.lmms.LMMS",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.13",
+  "runtime-version": "5.14",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -135,7 +135,7 @@
               "dest-filename": "configure"
             }
                             ],
-          "cleanup" : [
+          "cleanup": [
             "/bin",
             "/include"
           ]
@@ -171,6 +171,9 @@
       ],
       "post-install": [
         "sh ./stk-install.sh"
+      ],
+      "cleanup": [
+        "*.a"
       ],
       "sources": [
         {
@@ -214,7 +217,8 @@
         "/man",
         "/share/man",
         "/lib/pkgconfig",
-        "*.la"
+        "*.la",
+        "*.a"
       ]
     },
     {
