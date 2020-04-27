@@ -23,8 +23,56 @@
     "--env=TMPDIR=/var/tmp",
     /* On SuSE it seems to be necessary for sound to work */
     "--env=ALSA_CONFIG_PATH=",
-    "--env=LD_LIBRARY_PATH=/app/lib:/app/lib/libgig"
+    "--env=LD_LIBRARY_PATH=/app/lib:/app/lib/libgig",
+    "--env=LV2_PATH=/app/extensions/Lv2Plugins/lv2",
+    "--env=DSSI_PATH=/app/extensions/DssiPlugins/dssi",
+    "--env=VST_PATH=/app/extensions/VstPlugins/lxvst",
+    "--env=LXVST_PATH=/app/extensions/VstPlugins/lxvst",
+    "--env=VST3_PATH=/app/extensions/Vst3Plugins/vst3",
+    "--env=LADSPA_PATH=/app/extensions/LadspaPlugins/ladspa"
   ],
+  "add-extensions": {
+    "org.freedesktop.LinuxAudio.Lv2Plugins": {
+        "directory": "extensions/Lv2Plugins",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "lv2",
+        "subdirectories": true,
+        "no-autodownload": true
+    },
+    "org.freedesktop.LinuxAudio.DssiPlugins": {
+        "directory": "extensions/DssiPlugins",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "dssi",
+        "subdirectories": true,
+        "no-autodownload": true
+    },
+    "org.freedesktop.LinuxAudio.LadspaPlugins": {
+        "directory": "extensions/LadspaPlugins",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "ladspa",
+        "subdirectories": true,
+        "no-autodownload": true
+    },
+    "org.freedesktop.LinuxAudio.VstPlugins": {
+        "directory": "extensions/VstPlugins",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "lxvst",
+        "subdirectories": true,
+        "no-autodownload": true
+    },
+    "org.freedesktop.LinuxAudio.Vst3Plugins": {
+        "directory": "extensions/Vst3Plugins",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "vst3",
+        "subdirectories": true,
+        "no-autodownload": true
+    }
+  },
   "cleanup": [
     "/include",
     "/man",
@@ -34,38 +82,7 @@
   ],
   "modules": [
     "shared-modules/SDL/SDL-1.2.15.json",
-    {
-      "name": "fftw3f",
-      "config-opts": [
-        "--enable-threads",
-        "--enable-shared",
-        "--enable-float",
-        "--disable-static"
-      ],
-      "build-options": {
-        "arch": {
-          "x86_64": {
-            "config-opts": [
-              "--enable-sse2",
-              "--enable-avx",
-              "--enable-avx-128-fma"
-            ]
-          }
-        }
-      },
-      "sources": [
-        {
-          "type": "archive",
-          "url": "http://www.fftw.org/fftw-3.3.8.tar.gz",
-          "sha256": "6113262f6e92c5bd474f2875fa1b01054c4ad5040f6b0da7c03c98821d9ae303"
-        }
-      ],
-      "cleanup": [
-        "/bin",
-        "/include",
-        "/lib/*.la"
-      ]
-    },
+    "shared-modules/linux-audio/fftw3f.json",
     {
       "name": "portaudio",
       "config-opts": [
@@ -80,25 +97,7 @@
         }
       ]
     },
-    {
-      "name": "fluidsynth",
-      "buildsystem": "cmake-ninja",
-      "config-opts": [
-        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
-        "-DLIB_SUFFIX=",
-        "-DCMAKE_EXE_LINKER_FLAGS=-lncurses",
-        "-DCMAKE_SHARED_LINKER_FLAGS=-lncurses",
-        "-Denable-ladspa=on",
-        "-Denable-jack=off"
-      ],
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://github.com/FluidSynth/fluidsynth/archive/v2.1.2.tar.gz",
-          "sha256": "9206d83b8d2f7e1ec259ee01e943071de67e419aabe142b51312f8edb39c5503"
-        }
-      ]
-    },
+    "shared-modules/linux-audio/fluidsynth2.json",
     {
       "name" : "pyqt5",
       "config-opts" : [
@@ -225,7 +224,12 @@
         "-DWANT_QT5=1"
       ],
       "post-install": [
-        "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.appdata.xml"
+        "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.appdata.xml",
+        "install -d /app/extensions/Lv2Plugins",
+        "install -d /app/extensions/LadspaPlugins",
+        "install -d /app/extensions/DssiPlugins",
+        "install -d /app/extensions/VstPlugins",
+        "install -d /app/extensions/Vst3Plugins"
       ],
       "sources": [
         {
