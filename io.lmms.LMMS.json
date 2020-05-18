@@ -186,6 +186,7 @@
       "cleanup": [
         "/include",
         "/man",
+        "/share/doc",
         "/share/man",
         "/lib/pkgconfig",
         "*.la",
