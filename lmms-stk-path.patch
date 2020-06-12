@@ -1,0 +1,13 @@
+diff --git a/src/core/ConfigManager.cpp b/src/core/ConfigManager.cpp
+index 2ed0f8308..7dc997248 100644
+--- a/src/core/ConfigManager.cpp
++++ b/src/core/ConfigManager.cpp
+@@ -559,7 +559,7 @@ void ConfigManager::loadConfigFile( const QString & configFile )
+ 		else
+ 		{
+ 			// Fallback to system provided location
+-			m_stkDir = "/usr/share/stk/rawwaves/";
++			m_stkDir = "/app/share/stk/rawwaves/";
+ 		}
+ #endif
+ 	}
