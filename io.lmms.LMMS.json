@@ -221,6 +221,10 @@
           "dest-filename": "logo.png"
         },
         {
+          "type": "patch",
+          "path": "lmms-stk-path.patch"
+        },
+        {
           "type": "file",
           "path": "io.lmms.LMMS.appdata.xml"
         }
