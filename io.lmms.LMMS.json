@@ -107,8 +107,9 @@
       "sources" : [
         {
           "type" : "archive",
-          "url" : "https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.11.3/PyQt5_gpl-5.11.3.zip",
-          "sha256" : "7cacf0712d76a702e0e2102a65f411fd72e7f64a851a47a72c03fbafbe447aae"
+          "type" : "archive",
+          "url": "https://files.pythonhosted.org/packages/4d/81/b9a66a28fb9a7bbeb60e266f06ebc4703e7e42b99e3609bf1b58ddd232b9/PyQt5-5.14.2.tar.gz",
+          "sha256": "bd230c6fd699eabf1ceb51e13a8b79b74c00a80272c622427b80141a22269eb0"
         },
         {
           "type": "script",
@@ -124,8 +125,8 @@
           "sources" : [
             {
               "type" : "archive",
-              "url" : "https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.12/sip-4.19.12.tar.gz",
-              "sha256" : "24617fc31b983df075500ecac0e99d2fb48bf63ba82d4a17518659e571923822"
+              "url" : "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.22/sip-4.19.22.tar.gz",
+              "sha256" : "e1b768824ec1a2ee38dd536b6b6b3d06de27b00a2f5f55470d1b512306e3be45"
             },
             {
               "type": "script",
@@ -152,8 +153,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/falkTX/Carla/archive/v2.1.tar.gz",
-          "sha256": "a82ce08f3a82db9d878c8cb7e7e2f3b80834bf21801c6ec4ed95c0cfee25b963"
+          "url": "https://github.com/falkTX/Carla/archive/v2.1.1.tar.gz",
+          "sha256": "8611d6fc579ea55ab205cfb72571eb304da9ef997e7bbae5af5a339ef533d5d9"
         }
       ]
     },
