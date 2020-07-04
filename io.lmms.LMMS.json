@@ -82,6 +82,7 @@
     "/include",
     "/man",
     "/share/man",
+    "/share/info",
     "/lib/pkgconfig",
     "*.la"
   ],
@@ -204,6 +205,9 @@
       "buildsystem": "cmake-ninja",
       "config-opts": [
         "-DWANT_QT5=1"
+      ],
+      "cleanup": [
+        "/share/bash-completion"
       ],
       "post-install": [
         "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.appdata.xml",
