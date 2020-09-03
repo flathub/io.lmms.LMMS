@@ -156,6 +156,20 @@
         "make PREFIX=/app -j $FLATPAK_BUILDER_N_JOBS",
         "make PREFIX=/app install"
       ],
+      "build-options": {
+        "arch": {
+          "arm": {
+            "env": {
+              "NOOPT": "true"
+            }
+          },
+          "aarch64": {
+            "env": {
+              "NOOPT": "true"
+            }
+          }
+        }
+      },
       "sources": [
         {
           "type": "archive",
