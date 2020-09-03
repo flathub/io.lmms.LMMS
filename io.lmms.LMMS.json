@@ -1,7 +1,7 @@
 {
   "app-id": "io.lmms.LMMS",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.14",
+  "runtime-version": "5.15",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -22,16 +22,16 @@
     /* On SuSE it seems to be necessary for sound to work */
     "--env=ALSA_CONFIG_PATH=",
     "--env=LD_LIBRARY_PATH=/app/lib:/app/lib/libgig",
-    "--env=LV2_PATH=/app/extensions/Plugins/lv2:/app/extensions/Lv2Plugins/lv2",
+    "--env=LV2_PATH=/app/extensions/Plugins/lv2",
     "--env=DSSI_PATH=/app/extensions/Plugins/dssi",
     "--env=VST_PATH=/app/extensions/Plugins/lxvst",
     "--env=VST3_PATH=/app/extensions/Plugins/vst3",
-    "--env=LADSPA_PATH=/app/extensions/Plugins/ladspa:/app/extensions/LadspaPlugins/ladspa"
+    "--env=LADSPA_PATH=/app/extensions/Plugins/ladspa"
   ],
   "add-extensions": {
     "org.freedesktop.LinuxAudio.Plugins": {
         "directory": "extensions/Plugins",
-        "version": "19.08",
+        "version": "20.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa;dssi;lv2;lxvst;vst3",
         "subdirectories": true,
@@ -39,7 +39,7 @@
     },
     "org.freedesktop.LinuxAudio.Plugins.CAPS": {
         "directory": "extensions/Plugins/CAPS",
-        "version": "19.08",
+        "version": "20.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
@@ -47,31 +47,23 @@
     },
     "org.freedesktop.LinuxAudio.Plugins.CMT": {
         "directory": "extensions/Plugins/CMT",
-        "version": "19.08",
+        "version": "20.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
         "subdirectories": true
     },
-    "org.freedesktop.LinuxAudio.LadspaPlugins": {
-        "directory": "extensions/LadspaPlugins",
-        "version": "19.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "ladspa",
-        "subdirectories": true,
-        "no-autodownload": true
-    },
     "org.freedesktop.LinuxAudio.LadspaPlugins.TAP": {
-        "directory": "extensions/LadspaPlugins/TAP",
-        "version": "19.08",
+        "directory": "extensions/Plugins/TAP",
+        "version": "20.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
         "subdirectories": true
     },
     "org.freedesktop.LinuxAudio.LadspaPlugins.swh": {
-        "directory": "extensions/LadspaPlugins/swh",
-        "version": "19.08",
+        "directory": "extensions/Plugins/swh",
+        "version": "20.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
@@ -113,14 +105,13 @@
       "sources" : [
         {
           "type" : "archive",
-          "type" : "archive",
           "url": "https://files.pythonhosted.org/packages/4d/81/b9a66a28fb9a7bbeb60e266f06ebc4703e7e42b99e3609bf1b58ddd232b9/PyQt5-5.14.2.tar.gz",
           "sha256": "bd230c6fd699eabf1ceb51e13a8b79b74c00a80272c622427b80141a22269eb0"
         },
         {
           "type": "script",
           "commands": [
-            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.7m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.7m/'"
+            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.8/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.8/'"
           ],
           "dest-filename": "configure"
         }
@@ -137,7 +128,7 @@
             {
               "type": "script",
               "commands": [
-                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.7/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.7/site-packages"
+                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.8/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.8/site-packages"
               ],
               "dest-filename": "configure"
             }
@@ -230,9 +221,7 @@
       ],
       "post-install": [
         "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.appdata.xml",
-        "install -d /app/extensions/Plugins",
-        "install -d /app/extensions/Lv2Plugins",
-        "install -d /app/extensions/LadspaPlugins"
+        "install -d /app/extensions/Plugins"
       ],
       "sources": [
         {
