@@ -45,35 +45,11 @@
         "subdirectories": true,
         "no-autodownload": true
     },
-    "org.freedesktop.LinuxAudio.DssiPlugins": {
-        "directory": "extensions/DssiPlugins",
-        "version": "19.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "dssi",
-        "subdirectories": true,
-        "no-autodownload": true
-    },
     "org.freedesktop.LinuxAudio.LadspaPlugins": {
         "directory": "extensions/LadspaPlugins",
         "version": "19.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
-        "subdirectories": true,
-        "no-autodownload": true
-    },
-    "org.freedesktop.LinuxAudio.VstPlugins": {
-        "directory": "extensions/VstPlugins",
-        "version": "19.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "lxvst",
-        "subdirectories": true,
-        "no-autodownload": true
-    },
-    "org.freedesktop.LinuxAudio.Vst3Plugins": {
-        "directory": "extensions/Vst3Plugins",
-        "version": "19.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "vst3",
         "subdirectories": true,
         "no-autodownload": true
     }
@@ -227,10 +203,7 @@
         "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.appdata.xml",
         "install -d /app/extensions/Plugins",
         "install -d /app/extensions/Lv2Plugins",
-        "install -d /app/extensions/LadspaPlugins",
-        "install -d /app/extensions/DssiPlugins",
-        "install -d /app/extensions/VstPlugins",
-        "install -d /app/extensions/Vst3Plugins"
+        "install -d /app/extensions/LadspaPlugins"
       ],
       "sources": [
         {
