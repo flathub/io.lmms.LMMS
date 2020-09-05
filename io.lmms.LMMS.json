@@ -37,13 +37,21 @@
         "subdirectories": true,
         "no-autodownload": true
     },
-    "org.freedesktop.LinuxAudio.Lv2Plugins": {
-        "directory": "extensions/Lv2Plugins",
+    "org.freedesktop.LinuxAudio.Plugins.CAPS": {
+        "directory": "extensions/Plugins/CAPS",
         "version": "19.08",
         "add-ld-path": "lib",
-        "merge-dirs": "lv2",
-        "subdirectories": true,
-        "no-autodownload": true
+        "merge-dirs": "ladspa",
+        "autodelete": false,
+        "subdirectories": true
+    },
+    "org.freedesktop.LinuxAudio.Plugins.CMT": {
+        "directory": "extensions/Plugins/CMT",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "ladspa",
+        "autodelete": false,
+        "subdirectories": true
     },
     "org.freedesktop.LinuxAudio.LadspaPlugins": {
         "directory": "extensions/LadspaPlugins",
@@ -52,6 +60,22 @@
         "merge-dirs": "ladspa",
         "subdirectories": true,
         "no-autodownload": true
+    },
+    "org.freedesktop.LinuxAudio.LadspaPlugins.TAP": {
+        "directory": "extensions/LadspaPlugins/TAP",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "ladspa",
+        "autodelete": false,
+        "subdirectories": true
+    },
+    "org.freedesktop.LinuxAudio.LadspaPlugins.swh": {
+        "directory": "extensions/LadspaPlugins/swh",
+        "version": "19.08",
+        "add-ld-path": "lib",
+        "merge-dirs": "ladspa",
+        "autodelete": false,
+        "subdirectories": true
     }
   },
   "cleanup": [
@@ -194,7 +218,12 @@
       "name": "lmms",
       "buildsystem": "cmake-ninja",
       "config-opts": [
-        "-DWANT_QT5=1"
+        "-DWANT_QT5=1",
+        "-DWANT_CMT=OFF",
+        "-DWANT_CAPS=OFF",
+        "-DWANT_TAP=OFF",
+        "-DWANT_SWH=OFF",
+        "-DWANT_VST=OFF"
       ],
       "cleanup": [
         "/share/bash-completion"
