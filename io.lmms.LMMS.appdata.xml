@@ -38,6 +38,7 @@
  <url type="bugtracker">https://github.com/LMMS/lmms/issues</url>
  <url type="faq">https://lmms.io/documentation/User_FAQ</url>
  <url type="help">https://lmms.io/documentation/</url>
+ <url type="donation">https://www.paypal.com/donate/?item_name=Donation+to+LMMS&cmd=_donations&business=donations%40lmms.io</url>
  <url type="translate">https://github.com/LMMS/lmms/wiki/Creating-a-localization</url>
  <releases>
    <release version="1.2.2" date="2020-07-04">
