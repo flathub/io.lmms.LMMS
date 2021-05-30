@@ -14,6 +14,9 @@
     "--socket=pulseaudio",
     /* MIDI */
     "--device=all",
+    /* For pipewire */
+    "--filesystem=xdg-run/pipewire-0",
+    "--system-talk-name=org.freedesktop.RealtimeKit1",
     /* Allow loading, saving files from the home directory (portals don’t work yet) */
     "--filesystem=home",
     "--env=QT_QPA_PLATFORM=xcb",
@@ -81,6 +84,7 @@
   "modules": [
     "shared-modules/SDL/SDL-1.2.15.json",
     "shared-modules/linux-audio/fftw3f.json",
+    "shared-modules/linux-audio/jack2.json",
     {
       "name": "portaudio",
       "config-opts": [
@@ -209,7 +213,7 @@
       "name": "lmms",
       "buildsystem": "cmake-ninja",
       "config-opts": [
-        "-DWANT_QT5=1",
+        "-DWANT_QT5=ON",
         "-DWANT_CMT=OFF",
         "-DWANT_CAPS=OFF",
         "-DWANT_TAP=OFF",
