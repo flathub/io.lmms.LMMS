@@ -225,6 +225,8 @@
       ],
       "post-install": [
         "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.appdata.xml",
+        "mv ${FLATPAK_DEST}/share/mime/packages/lmms.xml ${FLATPAK_DEST}/share/mime/packages/${FLATPAK_ID}.xml",
+        "cd ${FLATPAK_DEST}/share/icons/hicolor; for d in */mimetypes/; do for f in ${d}*; do mv \"$f\" \"${d}${FLATPAK_ID}.$(basename $f)\"; done; done",
         "install -d /app/extensions/Plugins"
       ],
       "sources": [
@@ -236,6 +238,10 @@
         {
           "type": "patch",
           "path": "lmms-stk-path.patch"
+        },
+        {
+          "type": "patch",
+          "path": "lmms-mime-icon.patch"
         },
         {
           "type": "file",
