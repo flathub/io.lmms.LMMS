@@ -1,7 +1,7 @@
 {
   "app-id": "io.lmms.LMMS",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.15",
+  "runtime-version": "5.15-21.08",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -33,7 +33,7 @@
   "add-extensions": {
     "org.freedesktop.LinuxAudio.Plugins": {
         "directory": "extensions/Plugins",
-        "version": "20.08",
+        "version": "21.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa;dssi;lv2;lxvst;vst3",
         "subdirectories": true,
@@ -41,7 +41,7 @@
     },
     "org.freedesktop.LinuxAudio.Plugins.CAPS": {
         "directory": "extensions/Plugins/CAPS",
-        "version": "20.08",
+        "version": "21.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
@@ -49,7 +49,7 @@
     },
     "org.freedesktop.LinuxAudio.Plugins.CMT": {
         "directory": "extensions/Plugins/CMT",
-        "version": "20.08",
+        "version": "21.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
@@ -57,7 +57,7 @@
     },
     "org.freedesktop.LinuxAudio.LadspaPlugins.TAP": {
         "directory": "extensions/Plugins/TAP",
-        "version": "20.08",
+        "version": "21.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
@@ -65,7 +65,7 @@
     },
     "org.freedesktop.LinuxAudio.LadspaPlugins.swh": {
         "directory": "extensions/Plugins/swh",
-        "version": "20.08",
+        "version": "21.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa",
         "autodelete": false,
@@ -114,7 +114,7 @@
         {
           "type": "script",
           "commands": [
-            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.8/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.8/'"
+            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.9/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.9/'"
           ],
           "dest-filename": "configure"
         }
@@ -131,7 +131,7 @@
             {
               "type": "script",
               "commands": [
-                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.8/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.8/site-packages"
+                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.9/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.9/site-packages"
               ],
               "dest-filename": "configure"
             }
@@ -167,8 +167,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/falkTX/Carla/archive/v2.2.0.tar.gz",
-          "sha256": "4bf08511257db88979eccc002f10c153ff2a14f5143291c2be39cadd69ce10e1"
+          "url": "https://github.com/falkTX/Carla/archive/v2.4.0.tar.gz",
+          "sha256": "960a1288ef82543df27e0896a174dae8ff68d24594b6efe0b952105797162c0e"
         }
       ]
     },
