@@ -38,38 +38,6 @@
         "merge-dirs": "ladspa;dssi;lv2;lxvst;vst3",
         "subdirectories": true,
         "no-autodownload": true
-    },
-    "org.freedesktop.LinuxAudio.Plugins.CAPS": {
-        "directory": "extensions/Plugins/CAPS",
-        "version": "21.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "ladspa",
-        "autodelete": false,
-        "subdirectories": true
-    },
-    "org.freedesktop.LinuxAudio.Plugins.CMT": {
-        "directory": "extensions/Plugins/CMT",
-        "version": "21.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "ladspa",
-        "autodelete": false,
-        "subdirectories": true
-    },
-    "org.freedesktop.LinuxAudio.LadspaPlugins.TAP": {
-        "directory": "extensions/Plugins/TAP",
-        "version": "21.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "ladspa",
-        "autodelete": false,
-        "subdirectories": true
-    },
-    "org.freedesktop.LinuxAudio.LadspaPlugins.swh": {
-        "directory": "extensions/Plugins/swh",
-        "version": "21.08",
-        "add-ld-path": "lib",
-        "merge-dirs": "ladspa",
-        "autodelete": false,
-        "subdirectories": true
     }
   },
   "cleanup": [
@@ -213,10 +181,6 @@
       "buildsystem": "cmake-ninja",
       "config-opts": [
         "-DWANT_QT5=ON",
-        "-DWANT_CMT=OFF",
-        "-DWANT_CAPS=OFF",
-        "-DWANT_TAP=OFF",
-        "-DWANT_SWH=OFF",
         "-DWANT_VST=OFF"
       ],
       "cleanup": [
