@@ -139,7 +139,8 @@
         }
       ],
       "cleanup": [
-        "/lib/vst/carla.vst/"
+        "/lib/vst/carla.vst/",
+        "/lib/lv2/carla.lv2/"
       ]
     },
     "shared-modules/linux-audio/stk.json",
