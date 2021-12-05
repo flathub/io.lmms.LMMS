@@ -3,7 +3,7 @@
   "runtime": "org.kde.Platform",
   "runtime-version": "5.15-21.08",
   "sdk": "org.kde.Sdk",
-  "command": "lmms-wrap",
+  "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
   "rename-icon": "lmms",
   "finish-args": [
@@ -189,7 +189,8 @@
         "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.appdata.xml",
         "mv ${FLATPAK_DEST}/share/mime/packages/lmms.xml ${FLATPAK_DEST}/share/mime/packages/${FLATPAK_ID}.xml",
         "cd ${FLATPAK_DEST}/share/icons/hicolor; for d in */mimetypes/; do for f in ${d}*; do mv \"$f\" \"${d}${FLATPAK_ID}.$(basename $f)\"; done; done",
-        "install -Dm755 lmms-wrap.sh ${FLATPAK_DEST}/bin/lmms-wrap",
+        "mv ${FLATPAK_DEST}/bin/lmms ${FLATPAK_DEST}/bin/lmms.bin",
+        "install -Dm755 lmms-wrap.sh ${FLATPAK_DEST}/bin/lmms",
         "install -d /app/extensions/Plugins"
       ],
       "sources": [
