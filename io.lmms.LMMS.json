@@ -1,7 +1,7 @@
 {
   "app-id": "io.lmms.LMMS",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.15-21.08",
+  "runtime-version": "5.15-22.08",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -16,7 +16,6 @@
     "--device=all",
     /* For pipewire */
     "--filesystem=xdg-run/pipewire-0",
-    "--system-talk-name=org.freedesktop.RealtimeKit1",
     /* Allow loading, saving files from the home directory (portals don’t work yet) */
     "--filesystem=home",
     "--env=QT_QPA_PLATFORM=xcb",
@@ -32,7 +31,7 @@
   "add-extensions": {
     "org.freedesktop.LinuxAudio.Plugins": {
         "directory": "extensions/Plugins",
-        "version": "21.08",
+        "version": "22.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa;dssi;lv2;vst;vst3",
         "subdirectories": true,
@@ -50,7 +49,6 @@
   "modules": [
     "shared-modules/SDL/SDL-1.2.15.json",
     "shared-modules/linux-audio/fftw3f.json",
-    "shared-modules/linux-audio/jack2.json",
     {
       "name": "portaudio",
       "config-opts": [
@@ -81,7 +79,7 @@
         {
           "type": "script",
           "commands": [
-            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.9/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.9/'"
+            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.10/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.10/'"
           ],
           "dest-filename": "configure"
         }
@@ -98,7 +96,7 @@
             {
               "type": "script",
               "commands": [
-                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.9/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.9/site-packages"
+                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.10/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.10/site-packages"
               ],
               "dest-filename": "configure"
             }
@@ -114,16 +112,12 @@
       "name": "carla",
       "buildsystem": "simple",
       "build-commands": [
+        "make features",
         "make PREFIX=/app -j $FLATPAK_BUILDER_N_JOBS",
         "make PREFIX=/app install"
       ],
       "build-options": {
         "arch": {
-          "arm": {
-            "env": {
-              "NOOPT": "true"
-            }
-          },
           "aarch64": {
             "env": {
               "NOOPT": "true"
@@ -134,8 +128,12 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/falkTX/Carla/archive/v2.4.1.tar.gz",
-          "sha256": "bbb188a672ea8871b11648d36770ba013497d03407ca9c73ed68429016f7536f"
+          "url": "https://github.com/falkTX/Carla/archive/v2.4.2.tar.gz",
+          "sha256": "376884965e685242953cab757818dde262209c651bd563a04eade0678c6b9f39"
+        },
+        {
+          "type": "patch",
+          "path": "patches/carla-juce.patch"
         }
       ]
     },
@@ -201,11 +199,10 @@
         },
         {
           "type": "patch",
-          "path": "lmms-stk-path.patch"
-        },
-        {
-          "type": "patch",
-          "path": "lmms-mime-icon.patch"
+          "paths": [
+            "lmms-stk-path.patch",
+            "lmms-mime-icon.patch"
+          ]
         },
         {
           "type": "file",

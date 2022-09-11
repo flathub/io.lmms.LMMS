@@ -1,0 +1,10 @@
+--- carla/source/modules/juce_gui_basics/native/x11/juce_linux_XWindowSystem.cpp-orig	2022-09-10 20:50:43.921546719 -0400
++++ carla/source/modules/juce_gui_basics/native/x11/juce_linux_XWindowSystem.cpp	2022-09-10 20:50:58.279684572 -0400
+@@ -23,6 +23,7 @@
+   ==============================================================================
+ */
+ 
++#include <array>
+ #include <unordered_map>
+ 
+ namespace juce
