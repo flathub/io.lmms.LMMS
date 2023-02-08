@@ -37,7 +37,7 @@
  <update_contact>lmms-devel_AT_lists.sourceforge.net</update_contact>
  <url type="homepage">https://lmms.io/</url>
  <url type="bugtracker">https://github.com/LMMS/lmms/issues</url>
- <url type="faq">https://lmms.io/documentation/User_FAQ</url>
+ <url type="faq">https://docs.lmms.io/user-manual/getting-started/faq</url>
  <url type="help">https://lmms.io/documentation/</url>
  <url type="translate">https://github.com/LMMS/lmms/wiki/Creating-a-localization</url>
  <releases>
