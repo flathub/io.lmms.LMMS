@@ -1,7 +1,7 @@
 {
   "app-id": "io.lmms.LMMS",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.15-21.08",
+  "runtime-version": "5.15-22.08",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -31,7 +31,7 @@
   "add-extensions": {
     "org.freedesktop.LinuxAudio.Plugins": {
         "directory": "extensions/Plugins",
-        "version": "21.08",
+        "version": "22.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa;dssi;lv2;vst;vst3",
         "subdirectories": true,
@@ -80,7 +80,7 @@
         {
           "type": "script",
           "commands": [
-            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.9/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.9/'"
+            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.10/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.10/'"
           ],
           "dest-filename": "configure"
         }
@@ -97,7 +97,7 @@
             {
               "type": "script",
               "commands": [
-                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.9/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.9/site-packages"
+                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.10/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.10/site-packages"
               ],
               "dest-filename": "configure"
             }
