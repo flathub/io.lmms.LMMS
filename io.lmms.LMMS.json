@@ -1,22 +1,19 @@
 {
   "app-id": "io.lmms.LMMS",
+  "base": "com.riverbankcomputing.PyQt.BaseApp",
+  "base-version": "5.15-23.08",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.15-22.08",
+  "runtime-version": "5.15-23.08",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
   "rename-icon": "lmms",
   "finish-args": [
-    /* X11 + XShm access */
     "--share=ipc",
     "--socket=x11",
-    /* Note playback */
     "--socket=pulseaudio",
-    /* MIDI */
     "--device=all",
-    /* For pipewire */
     "--filesystem=xdg-run/pipewire-0",
-    /* Allow loading, saving files from the home directory (portals don’t work yet) */
     "--filesystem=home",
     "--env=QT_QPA_PLATFORM=xcb",
     "--env=TMPDIR=/var/tmp",
@@ -31,13 +28,21 @@
   "add-extensions": {
     "org.freedesktop.LinuxAudio.Plugins": {
         "directory": "extensions/Plugins",
-        "version": "22.08",
+        "version": "23.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa;dssi;lv2;vst;vst3",
         "subdirectories": true,
         "no-autodownload": true
     }
   },
+  "build-options": {
+    "env": {
+      "BASEAPP_REMOVE_WEBENGINE": "1"
+    }
+  },
+  "cleanup-commands": [
+    "/app/cleanup-BaseApp.sh"
+  ],
   "cleanup": [
     "/include",
     "/lib/pkgconfig",
@@ -45,7 +50,8 @@
     "/share/man",
     "/share/info",
     "/share/sip",
-    "*.la"
+    "*.la",
+    "*.a"
   ],
   "modules": [
     "shared-modules/SDL/SDL-1.2.15.json",
@@ -65,50 +71,6 @@
       ]
     },
     "shared-modules/linux-audio/fluidsynth2.json",
-    {
-      "name" : "pyqt5",
-      "config-opts" : [
-        "--disable-static",
-        "--enable-x11"
-      ],
-      "sources" : [
-        {
-          "type" : "archive",
-          "url": "https://files.pythonhosted.org/packages/4d/81/b9a66a28fb9a7bbeb60e266f06ebc4703e7e42b99e3609bf1b58ddd232b9/PyQt5-5.14.2.tar.gz",
-          "sha256": "bd230c6fd699eabf1ceb51e13a8b79b74c00a80272c622427b80141a22269eb0"
-        },
-        {
-          "type": "script",
-          "commands": [
-            "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.10/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.10/'"
-          ],
-          "dest-filename": "configure"
-        }
-      ],
-      "modules" : [
-        {
-          "name" : "sip",
-          "sources" : [
-            {
-              "type" : "archive",
-              "url" : "https://distfiles.macports.org/py-sip/sip-4.19.22.tar.gz",
-              "sha256" : "e1b768824ec1a2ee38dd536b6b6b3d06de27b00a2f5f55470d1b512306e3be45"
-            },
-            {
-              "type": "script",
-              "commands": [
-                "python3 configure.py --sip-module PyQt5.sip -b ${FLATPAK_DEST}/bin -d ${FLATPAK_DEST}/lib/python3.10/site-packages -e ${FLATPAK_DEST}/include -v ${FLATPAK_DEST}/share/sip --stubsdir=${FLATPAK_DEST}/lib/python3.10/site-packages"
-              ],
-              "dest-filename": "configure"
-            }
-          ],
-          "cleanup": [
-            "/bin",
-            "/include"
-          ]
-        }
-      ]
-    },
     {
       "name": "carla",
       "buildsystem": "simple",
@@ -161,8 +123,7 @@
       "config-opts": [
         "--enable-threads",
         "--enable-cairo",
-        "--enable-shared",
-        "--disable-static"
+        "--enable-shared"
       ],
       "sources": [
         {
