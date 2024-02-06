@@ -26,10 +26,11 @@
  </description>
  <content_rating type="oars-1.1" />
  <launchable type="desktop-id">io.lmms.LMMS.desktop</launchable>
+ <developer_name>LMMS Developers</developer_name>
  <translation type="qt">lmms</translation>
  <screenshots>
   <screenshot type="default">
-   <image>https://raw.githubusercontent.com/flathub/io.lmms.LMMS/screenshot/screenshots/lmms-screenshot.png</image>
+   <image>https://raw.githubusercontent.com/flathub/io.lmms.LMMS/4ddf34718b74f9bd10a351e0311b6d43c6d38dd3/screenshots/lmms-screenshot.png</image>
    <caption>The main LMMS window</caption>
   </screenshot>
  </screenshots>
