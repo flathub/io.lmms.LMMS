@@ -176,7 +176,8 @@
           "type": "patch",
           "paths": [
             "lmms-stk-path.patch",
-            "lmms-mime-icon.patch"
+            "lmms-mime-icon.patch",
+            "lmms-kwidgetsaddons.patch"
           ]
         },
         {
