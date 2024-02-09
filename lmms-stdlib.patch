@@ -1,0 +1,11 @@
+--- a/plugins/vst_base/CMakeLists.txt
++++ b/plugins/vst_base/CMakeLists.txt
+@@ -38,7 +38,7 @@ IF(LMMS_BUILD_LINUX AND NOT WANT_VST_NOWINE)
+ IF(LMMS_HOST_X86_64)
+ 	SET(EXTRA_FLAGS -m32)
+ 	IF(WINE_LIBRARY_FIX)
+-		SET(EXTRA_FLAGS ${EXTRA_FLAGS} -nodefaultlibs ${WINE_LIBRARY_FIX}wine/libwinecrt0.a -L${WINE_LIBRARY_FIX}wine/ -luser32 -lkernel32 -lgdi32)
++		SET(EXTRA_FLAGS ${EXTRA_FLAGS} -nodefaultlibs ${WINE_LIBRARY_FIX}wine/libwinecrt0.a -L${WINE_LIBRARY_FIX}wine/ -luser32 -lkernel32 -lgdi32 -lstdc++)
+ 	ENDIF()
+ ENDIF(LMMS_HOST_X86_64)
+
