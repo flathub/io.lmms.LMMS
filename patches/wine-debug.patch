@@ -1,0 +1,18 @@
+--- a/tools/winebuild/utils.c
++++ b/tools/winebuild/utils.c
+@@ -348,7 +348,7 @@ void spawn( struct strarray args )
+ 
+     if (argv0) args.str[0] = argv0;
+     strarray_add_one( &args, NULL );
+-    if (verbose)
++    //if (verbose)
+         for (i = 0; args.str[i]; i++)
+             fprintf( stderr, "%s%c", args.str[i], args.str[i+1] ? ' ' : '\n' );
+ 
+@@ -481,6 +481,7 @@ struct strarray get_ld_command(void)
+     if (target_cpu == CPU_ARM && target_platform != PLATFORM_WINDOWS)
+         strarray_add( &args, "--no-wchar-size-warning", NULL );
+ 
++    printf("ARGS: %s\n", *args.str);
+     return args;
+ }
