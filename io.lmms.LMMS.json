@@ -1,9 +1,9 @@
 {
   "app-id": "io.lmms.LMMS",
   "base": "com.riverbankcomputing.PyQt.BaseApp",
-  "base-version": "5.15-23.08",
+  "base-version": "5.15-24.08",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.15-23.08",
+  "runtime-version": "5.15-24.08",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -32,7 +32,7 @@
   "add-extensions": {
     "org.freedesktop.LinuxAudio.Plugins": {
         "directory": "extensions/Plugins",
-        "version": "23.08",
+        "version": "24.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa;dssi;lv2;vst;vst3",
         "subdirectories": true,
