@@ -1,0 +1,50 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b56a8c0..560b520 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,9 +8,9 @@ IF(COMMAND CMAKE_POLICY)
+ 	CMAKE_POLICY(SET CMP0005 NEW)
+ 	CMAKE_POLICY(SET CMP0003 NEW)
+ 	IF (CMAKE_MAJOR_VERSION GREATER 2)
+-		CMAKE_POLICY(SET CMP0026 OLD)
++		CMAKE_POLICY(SET CMP0026 NEW)
+ 		CMAKE_POLICY(SET CMP0045 NEW)
+-		CMAKE_POLICY(SET CMP0050 OLD)
++		CMAKE_POLICY(SET CMP0050 NEW)
+ 	ENDIF()
+ ENDIF(COMMAND CMAKE_POLICY)
+ 
+@@ -539,7 +539,6 @@ IF(WIN32 OR WIN64)
+ 	ADD_CUSTOM_TARGET(bin2res COMMAND g++ "\"${BIN2RES_CPP}\"" -o "\"${BIN2RES}\"" DEPENDS "${BIN2RES_CPP}")
+ ELSE(WIN32 OR WIN64)
+ 	ADD_EXECUTABLE(bin2res buildtools/bin2res.cpp)
+-	GET_TARGET_PROPERTY(BIN2RES bin2res LOCATION)
+ ENDIF(WIN32 OR WIN64)
+ 
+ # we somehow have to make LMMS-binary depend on MOC-files
+diff --git a/cmake/modules/BuildPlugin.cmake b/cmake/modules/BuildPlugin.cmake
+index f69fafe..575ff2c 100644
+--- a/cmake/modules/BuildPlugin.cmake
++++ b/cmake/modules/BuildPlugin.cmake
+@@ -27,7 +27,7 @@ MACRO(BUILD_PLUGIN PLUGIN_NAME)
+ 
+ 		SET(ER_H "${CMAKE_CURRENT_BINARY_DIR}/embedded_resources.h")
+ 		ADD_CUSTOM_COMMAND(OUTPUT ${ER_H}
+-			COMMAND ${BIN2RES}
++			COMMAND bin2res
+ 			ARGS ${PLUGIN_EMBEDDED_RESOURCES} > "${ER_H}"
+ 			DEPENDS bin2res)
+ 	ENDIF(ER_LEN)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index b18fa89..baa4a4a 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -45,7 +45,7 @@ ENDIF()
+ 
+ SET(lmms_EMBEDDED_RESOURCES "${CMAKE_SOURCE_DIR}/doc/AUTHORS" "${CMAKE_SOURCE_DIR}/LICENSE.txt" "${CONTRIBUTORS}")
+ SET(LMMS_ER_H "${CMAKE_CURRENT_BINARY_DIR}/embedded_resources.h")
+-ADD_CUSTOM_COMMAND(OUTPUT "${LMMS_ER_H}" COMMAND "${BIN2RES}" ARGS ${lmms_EMBEDDED_RESOURCES} > "${LMMS_ER_H}" DEPENDS bin2res)
++ADD_CUSTOM_COMMAND(OUTPUT "${LMMS_ER_H}" COMMAND bin2res ARGS ${lmms_EMBEDDED_RESOURCES} > "${LMMS_ER_H}" DEPENDS bin2res)
+ 
+ # Paths relative to lmms executable
+ FILE(RELATIVE_PATH LIB_DIR_RELATIVE "/${BIN_DIR}" "/${LIB_DIR}")

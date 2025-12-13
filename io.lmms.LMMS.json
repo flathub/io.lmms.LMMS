@@ -1,9 +1,9 @@
 {
   "app-id": "io.lmms.LMMS",
   "base": "com.riverbankcomputing.PyQt.BaseApp",
-  "base-version": "5.15-24.08",
+  "base-version": "5.15-25.08",
   "runtime": "org.kde.Platform",
-  "runtime-version": "5.15-24.08",
+  "runtime-version": "5.15-25.08",
   "sdk": "org.kde.Sdk",
   "command": "lmms",
   "rename-desktop-file": "lmms.desktop",
@@ -26,7 +26,7 @@
   "add-extensions": {
     "org.freedesktop.LinuxAudio.Plugins": {
         "directory": "extensions/Plugins",
-        "version": "24.08",
+        "version": "25.08",
         "add-ld-path": "lib",
         "merge-dirs": "ladspa;dssi;lv2;vst;vst3",
         "subdirectories": true,
@@ -144,16 +144,18 @@
       "name": "lmms",
       "buildsystem": "cmake-ninja",
       "config-opts": [
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
         "-DWANT_QT5=ON",
         "-DWANT_VST=OFF"
       ],
+      "builddir": true,
       "cleanup": [
         "/share/bash-completion"
       ],
       "post-install": [
-        "install -Dm644 -t /app/share/metainfo io.lmms.LMMS.metainfo.xml",
+        "install -Dm644 -t /app/share/metainfo ../io.lmms.LMMS.metainfo.xml",
         "mv ${FLATPAK_DEST}/bin/lmms ${FLATPAK_DEST}/bin/lmms.bin",
-        "install -Dm755 lmms-wrap.sh ${FLATPAK_DEST}/bin/lmms",
+        "install -Dm755 ../lmms-wrap.sh ${FLATPAK_DEST}/bin/lmms",
         "install -d /app/extensions/Plugins"
       ],
       "sources": [
@@ -171,8 +173,9 @@
         {
           "type": "patch",
           "paths": [
-            "lmms-stk-path.patch",
-            "lmms-kwidgetsaddons.patch"
+            "patches/lmms-stk-path.patch",
+            "patches/lmms-kwidgetsaddons.patch",
+            "patches/lmms-cmake.patch"
           ]
         },
         {
