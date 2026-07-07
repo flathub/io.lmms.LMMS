@@ -20,7 +20,6 @@
     "--filesystem=xdg-run/pipewire-0",
     "--filesystem=home",
     "--env=TMPDIR=/var/tmp",
-    /* On SuSE it seems to be necessary for sound to work */
     "--env=ALSA_CONFIG_PATH="
   ],
   "add-extensions": {
@@ -105,9 +104,6 @@
     "shared-modules/linux-audio/stk.json",
     {
       "name": "gig",
-      "cleanup": [
-        "*.a"
-      ],
       "sources": [
         {
           "type": "archive",
@@ -131,13 +127,7 @@
         }
       ],
       "cleanup": [
-        "/include",
-        "/man",
-        "/share/doc",
-        "/share/man",
-        "/lib/pkgconfig",
-        "*.la",
-        "*.a"
+        "/share/doc"
       ]
     },
     {
